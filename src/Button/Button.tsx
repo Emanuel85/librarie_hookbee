@@ -46,9 +46,9 @@ const button = cva("inline-flex items-center justify-center whitespace-nowrap te
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof button> { }
 
 export const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(
-	({ children, variant, size, outline, rounded, className, ...props }) => {
+	({ children, variant, size, outline, rounded, className, ...props }, ref) => {
 		return (
-			<button className={cn(button({ variant, size, outline, rounded, className }))} {...props}>{children}</button>
+			<button className={cn(button({ variant, size, outline, rounded, className }))} {...props} ref={ref}>{children}</button>
 		)
 	}
 )
