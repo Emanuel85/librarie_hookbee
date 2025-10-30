@@ -1,56 +1,60 @@
-import { ButtonHTMLAttributes, FC, forwardRef } from 'react'
+import { ElementType, Ref, forwardRef, ReactElement } from 'react'
 import { cn } from '../utils/utils';
 import { cva, type VariantProps } from "class-variance-authority";
+import { PolymorphicComponentPropsWithRef } from '../utils/polmorphicsTypes';
 
 
 const textStyles = cva("text-slate-800", {
-	variants: {
-		enphasis: {
-			low: "text-gray-600 font-light",
-		},
-		size: {
-			sm: "text-sm",
-			base: "text-base",
-			lg: "text-lg",
-			xl: "text-xl",
-			'2xl': "text-2xl",
-			'3xl': "text-3xl",
-			'4xl': "text-4xl",
-		},
-		weight: {
-			thin: "font-thin",
-			normal: "font-normal",
-			medium: "font-medium",
-			bold: "font-bold",
-			semibold: "font-semibold",
-			black: "font-black",
-		},
-		align: {
-			left: "text-left",
-			center: "text-center",
-			right: "text-right",
-		},
-		italic: {
-			true: "italic"
-		},
-		underline: {
-			true: "underline underline-offset-2"
-		}
-	},
-	defaultVariants: {
-		size: "base",
-		weight: "normal",
-		align: "left"
-	}
+  variants: {
+    emphasis: {
+      low: "text-gray-600 font-light",
+    },
+    size: {
+      sm: "text-sm",
+      base: "text-base",
+      lg: "text-lg",
+      xl: "text-xl",
+      '2xl': "text-2xl",
+      '3xl': "text-3xl",
+      '4xl': "text-4xl",
+    },
+    weight: {
+      thin: "font-thin",
+      normal: "font-normal",
+      medium: "font-medium",
+      bold: "font-bold",
+      semibold: "font-semibold",
+      black: "font-black",
+    },
+    align: {
+      left: "text-left",
+      center: "text-center",
+      right: "text-right",
+    },
+    italic: {
+      true: "italic"
+    },
+    underline: {
+      true: "underline underline-offset-2"
+    }
+  },
+  defaultVariants: {
+    size: "base",
+    weight: "normal",
+    align: "left"
+  }
 })
-interface TextProps extends ButtonHTMLAttributes<HTMLParagraphElement>, VariantProps<typeof textStyles> { }
+// interface TextProps extends ButtonHTMLAttributes<HTMLParagraphElement>, VariantProps<typeof textStyles> { }
 
-export const Text: FC<TextProps> = forwardRef<HTMLParagraphElement, TextProps>(
-	({ enphasis, size, weight, align, italic, underline, children, className, ...props }, ref) => {
-		return (
-			<p className={cn(textStyles({ enphasis, size, weight, align, italic, underline }), className)} {...props} ref={ref}>
-				{children}
-			</p>
-		)
-	}
-)
+type TextProps<C extends ElementType> = PolymorphicComponentPropsWithRef<C, VariantProps<typeof textStyles>>;
+
+type TextComponent = <C extends ElementType =  "p">(props: TextProps<C>) => ReactElement | null;
+
+
+export const Text: TextComponent = forwardRef(<C extends ElementType = "p">({ as, emphasis, size, weight, align, italic, underline,
+  children, className, ...props }: TextProps<C>, ref: Ref<HTMLParagraphElement>) => {
+  const Component = as || "p";
+  return (
+    <Component className={cn(textStyles({ emphasis, size, weight, align, italic, underline }), className)} {...props} ref={ref}>{children}</Component>
+  )
+}) as TextComponent
