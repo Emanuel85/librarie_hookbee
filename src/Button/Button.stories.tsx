@@ -11,7 +11,7 @@ const meta: Meta<typeof Button> = {
 	},
 	argTypes: {
 		children: {
-			description: 'Es la descripcion del button',
+			description: 'Descripcion del button',
 			control: { type: 'text' },
 		},
 		variant: {
