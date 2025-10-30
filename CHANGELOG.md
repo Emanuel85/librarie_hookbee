@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/Emanuel85/librarie_hookbee/compare/v0.1.0...v0.2.0) (2025-10-30)
+
+
+### Features
+
+* **btn component:** cambia la descripcion de children ([2b67c6c](https://github.com/Emanuel85/librarie_hookbee/commit/2b67c6cc116243969e02da86b864ba1f9943dc2f))
+
 # [0.1.0](https://github.com/Emanuel85/librarie_hookbee/compare/v0.0.2...v0.1.0) (2025-10-30)
 
 
