@@ -12,7 +12,35 @@
       "import": "./dist/hookbee-ui.js",
       "require": "./dist/hookbee-ui.umd.cjs"
     },
-    "./dist/hookbee-ui.css": "./dist/hookbee-ui.css" 
+    "./dist/hookbee-ui.css": "./dist/hookbee-ui.css"
+  },
+  "release": {
+    "branches": [
+      "master",
+      "next"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ],
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
+    ]
   },
   "scripts": {
     "dev": "vite",
@@ -30,6 +58,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@storybook/addon-docs": "^9.1.10",
     "@storybook/addon-onboarding": "^9.1.10",
     "@storybook/react-vite": "^9.1.10",
@@ -45,6 +75,7 @@
     "globals": "^16.4.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "semantic-release": "^25.0.1",
     "storybook": "^9.1.10",
     "tailwindcss": "^4.1.14",
     "typescript": "~5.9.3",
