@@ -1,3 +1,10 @@
+# [0.3.0](https://github.com/Emanuel85/librarie_hookbee/compare/v0.2.0...v0.3.0) (2025-10-31)
+
+
+### Features
+
+* **install commitezen:** instalacion y configuracion de commitezen ([a7be5c6](https://github.com/Emanuel85/librarie_hookbee/commit/a7be5c624edc3c1eb9401ea42eb8d5f1f5c2c2e3))
+
 # [0.2.0](https://github.com/Emanuel85/librarie_hookbee/compare/v0.1.0...v0.2.0) (2025-10-30)
 
 
