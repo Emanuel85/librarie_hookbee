@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, FC, forwardRef } from 'react'
 import { cn } from '../utils/utils';
 
-interface StackProps extends ButtonHTMLAttributes<HTMLDivElement> {
+export interface StackProps extends ButtonHTMLAttributes<HTMLDivElement> {
 	col?: boolean;
 	spacing?: number;
 }

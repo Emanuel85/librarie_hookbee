@@ -43,7 +43,7 @@ const button = cva("inline-flex items-center justify-center whitespace-nowrap te
 	}
 })
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof button> { }
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof button> { }
 
 export const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(
 	({ children, variant, size, outline, rounded, className, ...props }, ref) => {

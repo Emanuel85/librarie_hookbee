@@ -25,13 +25,13 @@ const meta: Meta<typeof Button> = {
 			description: 'habilita el outline',
 			control: { type: 'boolean' },
 		},
-		rounded:{
+		rounded: {
 			type: 'string',
 			options: ['basic', 'sm', 'md', 'lg', 'full'],
 			description: 'Define el borde redondeado',
 			control: { type: 'select' },
 		},
-			size:{
+		size: {
 			type: 'string',
 			options: ['basic', 'sm', 'md', 'lg', 'full'],
 			description: 'Define el tamaño del button',
