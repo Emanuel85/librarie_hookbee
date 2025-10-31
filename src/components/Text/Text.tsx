@@ -1,7 +1,7 @@
 import { ElementType, Ref, forwardRef, ReactElement } from 'react'
-import { cn } from '../utils/utils';
+import { cn } from '../../utils/utils';
 import { cva, type VariantProps } from "class-variance-authority";
-import { PolymorphicComponentPropsWithRef } from '../utils/polmorphicsTypes';
+import { PolymorphicComponentPropsWithRef } from '../../utils/polmorphicsTypes';
 
 
 const textStyles = cva("text-slate-800", {

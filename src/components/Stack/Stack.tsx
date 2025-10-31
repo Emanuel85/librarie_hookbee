@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, FC, forwardRef } from 'react'
-import { cn } from '../utils/utils';
+import { cn } from '../../utils/utils';
 
 export interface StackProps extends ButtonHTMLAttributes<HTMLDivElement> {
 	col?: boolean;
