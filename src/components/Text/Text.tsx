@@ -48,7 +48,7 @@ const textStyles = cva("text-slate-800", {
 
 type TextProps<C extends ElementType> = PolymorphicComponentPropsWithRef<C, VariantProps<typeof textStyles>>;
 
-type TextComponent = <C extends ElementType =  "p">(props: TextProps<C>) => ReactElement | null;
+export type TextComponent = <C extends ElementType =  "p">(props: TextProps<C>) => ReactElement | null;
 
 
 export const Text: TextComponent = forwardRef(<C extends ElementType = "p">({ as, emphasis, size, weight, align, italic, underline,
